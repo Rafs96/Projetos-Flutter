@@ -35,60 +35,63 @@ class _HomeState extends State<Home> {
   }
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        children: <Widget>[
-          Image.asset(
-            "images/restaurante.jpg",
-            fit: BoxFit.cover,
-            height: 1000.0,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Pessoas: $_people",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: FlatButton(
-                      child: Text(
-                        "+1",
-                        style: TextStyle(fontSize: 40.0, color: Colors.white),
+    return Material(
+      color: Colors.transparent,
+      child: Stack(
+          children: <Widget>[
+            Image.asset(
+              "images/restaurante.jpg",
+              fit: BoxFit.cover,
+              height: 1000.0,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Pessoas: $_people",
+                  style:
+                      TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40.0),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: FlatButton(
+                        child: Text(
+                          "+1",
+                          style: TextStyle(fontSize: 40.0, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          _changePeople(1);
+                        },
                       ),
-                      onPressed: () {
-                        _changePeople(1);
-                      },
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: FlatButton(
-                      child: Text(
-                        "-1",
-                        style: TextStyle(fontSize: 40.0, color: Colors.white),
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: FlatButton(
+                        child: Text(
+                          "-1",
+                          style: TextStyle(fontSize: 40.0, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          _changePeople(-1);
+                        },
                       ),
-                      onPressed: () {
-                        _changePeople(-1);
-                      },
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                _infoText,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 30.0),
-              ),
-            ],
-          )
-        ],
-      );
+                  ],
+                ),
+                Text(
+                  _infoText,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 30.0),
+                ),
+              ],
+            )
+          ],
+        ),
+    );
   }
 }

@@ -13,23 +13,22 @@ class  Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   TextEditingController weightController = TextEditingController();
   TextEditingController heightController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _infoText = "Informe seus dados ";
+
+  String _infoText = "Informe seus dados!";
 
   void _resetFields(){
     weightController.text = "";
     heightController.text = "";
     setState(() {
-      _infoText = "Informe seus dados ";  
+      _infoText = "Informe seus dados!";
       _formKey = GlobalKey<FormState>();
-    }
-    );
-    
+    });
   }
+
 
   void _calculoIMC(){
     setState(() {
@@ -86,7 +85,8 @@ class _HomeState extends State<Home> {
           children: <Widget>[
           Icon(Icons.person_outline, size:  140.0, color: Colors.purple,
           ),
-          TextFormField(keyboardType: TextInputType.number,
+          TextFormField(
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               labelText: "Peso (kg)",
               labelStyle: TextStyle(color: Colors.purple)
@@ -95,11 +95,11 @@ class _HomeState extends State<Home> {
             style: TextStyle(color: Colors.purple, fontSize: 30.0 
             ),
             controller: weightController,
-            validator: (value){
+            validator: (value) {
               if(value.isEmpty){
                 return "Insira seu peso";
               }
-
+              return '';
             },
           ),
           TextFormField(keyboardType: TextInputType.number,
@@ -115,6 +115,7 @@ class _HomeState extends State<Home> {
               if(value.isEmpty){
                 return "Insira sua altura";
               }
+              return '';
 
             },
           ),

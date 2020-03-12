@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
               if(value.isEmpty){
                 return "Insira seu peso";
               }
-              return '';
+              return null;
             },
           ),
           TextFormField(keyboardType: TextInputType.number,
@@ -115,7 +115,7 @@ class _HomeState extends State<Home> {
               if(value.isEmpty){
                 return "Insira sua altura";
               }
-              return '';
+              return null;
 
             },
           ),
